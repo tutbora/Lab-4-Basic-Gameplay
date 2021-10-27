@@ -11,17 +11,21 @@ public class SpawnManager : MonoBehaviour
     private float zPowerRange = 5.0f;
     private float ySpawn = 0;
 
+    private float powerSpawnTime = 5.0f;
+    private float enemySpawnTime = 1.0f;
+    private float startDelay = 1.0f;
+
     // Start is called before the first frame update
     void Start()
     {
-        SpawnEnemy();
-        SpawnPowerup();
+        InvokeRepeating("SpawnEnemy", startDelay, enemySpawnTime);
+        InvokeRepeating("SpawnPowerup", startDelay, powerSpawnTime);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void SpawnEnemy()
